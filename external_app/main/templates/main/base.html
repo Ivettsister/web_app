@@ -8,10 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css"%}">
-    <link rel="stylesheet" href="{%static "deps/css/my_css.css"%}">
+
+    {% block page_css %}
+    {% endblock %}
+
     <!-- Стиль footer-a для главной страницы -->
     
-    {% block css %}
+    {% block footer_css %}
     {% endblock %}
         
     <!-- Favicons for different platforms -->
@@ -26,7 +29,7 @@
     <header>
         <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #ffffff;">
             <div class="container">
-                <a class="navbar-brand me-auto mb-4 mb-lg-0" style="width: 200px;" href="index.html">
+                <a class="navbar-brand me-auto mb-4 mb-lg-0" style="width: 200px;" href="{% url  "index" %}">
                     <img src="../static/deps/images/sol_v_icon.jpg" alt="" width="80" height="80">
                 </a>
 
@@ -45,7 +48,7 @@
                             <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item  text-dark" href="#">Доставка и оплата</a></li>
                                 <li><a class="dropdown-item  text-dark" href="#">Контактная информация</a></li>
-                                <li><a class="dropdown-item  text-dark" href="#">Про нас</a></li>
+                                <li><a class="dropdown-item  text-dark" href="{% url "about" %}">Про нас</a></li>
                             </ul>
                         </li>
                         <li class="nav-item" style="width: 180px;">

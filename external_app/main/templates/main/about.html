@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block page_css%}
-    <link rel="stylesheet" href="{%static "deps/css/my_css.css"%}">
-{% endblock%}
+    <link rel="stylesheet" href="{%static "deps/css/about_css.css"%}">
+{% endblock %}
 
 {% block footer_css %}
     <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
@@ -11,5 +11,8 @@
 
 
 {% block content %}
-    <h3 class="mt-4 pl-5" style="width: 1000px;">{{ content }}</h3>
+    <div class="mt-5 pt-5 bg-white custom-shadow rounded">
+        <h5 class="m-2" style="width: 1500px;">{{ content }}</h5>
+        <p class="m-2">{{ text_on_page }}</p>
+    </div>
 {% endblock %}

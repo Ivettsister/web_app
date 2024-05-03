@@ -12,4 +12,10 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse("About page")
+    context = {
+        "title": "О нас",
+        "content": "Вы находитесь на образовательной платформе, созданной Соловьевой Виолеттой",
+        "text_on_page": "Текст о том, какая я крутая, умная и красивая:)",
+    }
+
+    return render(request, "main/about.html", context)
