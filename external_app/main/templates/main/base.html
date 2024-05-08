@@ -96,12 +96,9 @@
                         Программы занятий
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Занятия в группе</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Индивидуальные занятия</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Интенсив к поступлению</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Оценка уровня</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Пробное занятие</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Все программы обучения</a></li>
+                        {% for category in categories %}
+                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">{{category.name}}</a></li>
+                        {% endfor %}   
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->
