@@ -12,22 +12,28 @@
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-dark btn-sm decrement"
-                                    data-cart-id="" data-cart-change-url="">-</button>
+                                    data-cart-id="{{ cart.id }}"
+                                    data-cart-change-url="{% url "cart:cart_change" %}">
+                                    {% csrf_token %}
+                                    -</button>
                             </span>
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
                                 readonly>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-dark btn-sm increment"
-                                    data-cart-id="" data-cart-change-url="">+</button>
+                                    data-cart-id="{{ cart.id }}"
+                                    data-cart-change-url="{% url "cart:cart_change" %}">
+                                    {% csrf_token %}
+                                    +</button>
                             </span>
                         </div>
                     </div>
                     <div class="col p-0">
                         <p>x {{ cart.product.sell_price }} = </p>
                     </div>
-                    <div class="col p-0"><strong> {{cart.products_price}} руб</strong></div>
+                    <div class="col p-0"><strong> {{cart.products_price}} $</strong></div>
                     <div class="col p-0">
-                        <a href="{% url "cart:cart_remove" %}" class="remove-from-cart" 
+                        <a href="{% url "cart:cart_remove" %}" class="remove-from-cart"
                         data-cart-id="{{ cart.id }}">
                             {% csrf_token %}
                             <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
@@ -42,6 +48,6 @@
 <div class="card mb-3 shadow-lg">
     <div class="card-footer">
         <p class="float-left">Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
-        <h4 class="float-left"><strong>{{ carts.total_price }} руб</strong></h4>
+        <h4 class="float-left"><strong>{{ carts.total_price }} $</strong></h4>
     </div>
 </div>
