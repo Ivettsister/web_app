@@ -20,7 +20,7 @@ class Order(models.Model):
     phone_number = models.CharField(max_length=20, verbose_name="Номер телефона")
     # requires_delivery = models.BooleanField(default=False, verbose_name="Требуется доставка")
     # delivery_address = models.TextField(null=True, blank=True, verbose_name="Адрес доставки")
-    payment_on_get = models.BooleanField(default=False, verbose_name="Оплата в рассрочку")
+    payment_on_get = models.BooleanField(default=False, verbose_name="Оплатить сразу")
     is_paid = models.BooleanField(default=False, verbose_name="Оплачено")
     status = models.CharField(max_length=50, default='В обработке', verbose_name="Статус заказа")
 
@@ -51,7 +51,7 @@ class OrderItem(models.Model):
 
     def products_price(self):
         return round(self.price * self.quantity, 2)
-        #selb.product.self_price()
+        #self.product.self_price
 
     def __str__(self):
         return f"Товар {self.name} | Заказ № {self.order.pk}"
